@@ -23,6 +23,6 @@ public class PlayerController : MonoBehaviour
 
         //Translate (x,y,z) Makes the player move forward;
         transform.Translate(Vector3.forward * Time.deltaTime * speed * fInput);
-        transform.Translate(Vector3.right * Time.deltaTime * turnSpeed * hInput);
+        transform.Rotate(Vector3.up, turnSpeed * Time.deltaTime * hInput);
     }
 }
