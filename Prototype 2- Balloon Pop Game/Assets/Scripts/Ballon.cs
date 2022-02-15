@@ -6,7 +6,7 @@ public class Ballon : MonoBehaviour
 {
     public int ScoreToGive = 100; // Score that is given for the popped ballon
     public int ClicksToPop = 3; // How many clicks it takes to pop the ballon
-    public float InflationScale = .50f; // How much the ballon increases per click
+    public float InflationScale = .75f; // How much the ballon increases per click
 
     // Start is called before the first frame update
     void Start()
