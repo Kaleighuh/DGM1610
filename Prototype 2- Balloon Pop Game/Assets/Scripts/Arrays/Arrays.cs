@@ -18,7 +18,7 @@ public class Arrays : MonoBehaviour
         friendnames [0] = "Veronica";
         Debug.Log("New friend" + friendnames[0]);
         */
-        foreach(int numbers in numbers)
+        foreach(int numbers in numbers);
         {
             print(numbers);
         }

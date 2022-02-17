@@ -7,6 +7,7 @@ public class Ballon : MonoBehaviour
     public int ScoreToGive = 100; // Score that is given for the popped ballon
     public int ClicksToPop = 3; // How many clicks it takes to pop the ballon
     public float InflationScale = .75f; // How much the ballon increases per click
+    public Score_Manager scoreManager; // a variable to reference the Score_Manager. How these two scripts are connected
 
     // Start is called before the first frame update
     void Start()
@@ -29,6 +30,7 @@ public class Ballon : MonoBehaviour
 
         if (ClicksToPop == 0)
         {
+            scoreManager.UpdateScoreText(ScoreToGive);
             Destroy(gameObject);
         }
 
