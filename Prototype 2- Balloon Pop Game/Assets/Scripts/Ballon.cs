@@ -12,13 +12,8 @@ public class Ballon : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        //reference ScoreManager Component
+        scoreManager = GameObject.Find("Score_Manager").GetComponent<Score_Manager>();
     }
 
     void OnMouseDown() // Holding and clicking down on the Mouse
@@ -30,7 +25,7 @@ public class Ballon : MonoBehaviour
 
         if (ClicksToPop == 0)
         {
-            scoreManager.UpdateScoreText(ScoreToGive);
+            scoreManager.IncreaseScoreText(ScoreToGive);
             Destroy(gameObject);
         }
 
