@@ -26,7 +26,7 @@ public class MoveDown : MonoBehaviour
         //Destroy the Ballon after it passes lowerbound
         if(transform.position.y < lowerBound)
         {
-            Score_Manager.DecreaseScoreText(Ballon.ScoreToGive);
+            Score_Manager.decreaseScoreText(Ballon.ScoreToGive);
             Destroy(gameObject);
         }
     }
