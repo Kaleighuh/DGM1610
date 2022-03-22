@@ -232,7 +232,7 @@ GameObject:
   - component: {fileID: 466653700}
   - component: {fileID: 466653699}
   - component: {fileID: 466653701}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Enemy_Follow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -757,7 +757,7 @@ GameObject:
   - component: {fileID: 1576970251}
   - component: {fileID: 1576970250}
   - component: {fileID: 1576970249}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Circle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -931,7 +931,7 @@ GameObject:
   - component: {fileID: 2040584697}
   - component: {fileID: 2040584696}
   - component: {fileID: 2040584695}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Enemy_MoveAndShoot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1169,6 +1169,10 @@ PrefabInstance:
     - target: {fileID: 1943539485943871682, guid: 99cd7f586fa064e6ba7c4fb0afcac1d4, type: 3}
       propertyPath: m_Name
       value: Enemy_Follow
+      objectReference: {fileID: 0}
+    - target: {fileID: 1943539485943871682, guid: 99cd7f586fa064e6ba7c4fb0afcac1d4, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 1943539485943871682, guid: 99cd7f586fa064e6ba7c4fb0afcac1d4, type: 3}
       propertyPath: m_TagString
