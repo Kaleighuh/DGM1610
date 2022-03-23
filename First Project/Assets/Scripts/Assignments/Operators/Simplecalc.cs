@@ -17,10 +17,10 @@ public class Simplecalc : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        add();
-        sub();
-        mult();
-        div();
+        Add();
+        Sub();
+        Mult();
+        Div();
        
     }
 
@@ -29,7 +29,7 @@ public class Simplecalc : MonoBehaviour
     {
         
     }
-    void add()
+    void Add()
     { 
         int total;
 
@@ -39,7 +39,7 @@ public class Simplecalc : MonoBehaviour
 
     }
 
-    void sub()
+    void Sub()
     {
         int total;
 
@@ -48,7 +48,7 @@ public class Simplecalc : MonoBehaviour
         Debug.Log(numberB + "-" + numberC + "=" + total);
 
     }
-    void mult()
+    void Mult()
     {
         int total;
 
@@ -57,7 +57,7 @@ public class Simplecalc : MonoBehaviour
         Debug.Log(numberB + "*" + numberB + "=" + total);
 
     }
-    void div()
+    void Div()
     {
         int total;
         int rem;
