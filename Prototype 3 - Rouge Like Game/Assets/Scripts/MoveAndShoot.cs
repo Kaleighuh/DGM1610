@@ -23,7 +23,7 @@ public class MoveAndShoot : MonoBehaviour
     {
         if(Vector2.Distance(transform.position, target.position) > stopDistance)
         {
-            transform.position = Vector2.MoveTowards(transform.position, target.position, speed *Time.deltaTime);
+            transform.position = Vector2.MoveTowards(transform.position, target.position, speed * Time.deltaTime);
         }
         else if(Vector2.Distance(transform.position, target.position) < stopDistance && Vector2.Distance(transform.position, target.position) > retreatDistance)
         {
@@ -36,6 +36,7 @@ public class MoveAndShoot : MonoBehaviour
         if(shotDelay <= 0)
         {
             Instantiate(projectile, transform.position, Quaternion.identity);
+            shotDelay = startDelay;
         }
         else
         {

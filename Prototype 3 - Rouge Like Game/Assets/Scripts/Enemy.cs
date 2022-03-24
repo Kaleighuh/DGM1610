@@ -9,6 +9,7 @@ public class Enemy : MonoBehaviour
     public int maxHP;
     [Header("Enemy Attack")]
     public int damage;
+    public float attackRange;
     public float attackRate;
     private float lastAttackTime;
     public Player_Controller player;
@@ -22,7 +23,7 @@ public class Enemy : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(Time.time - lastAttackTime >= attackRate)
+        if(Time.time - lastAttackTime >= attackRate && Vector2.Distance(transform.position, player.transform.position) < attackRange)
         {
             Attack();
         }
