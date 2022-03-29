@@ -34,13 +34,21 @@ public class Player_Controller : MonoBehaviour
     {
         movement.x = Input.GetAxis("Horizontal"); // Left and right movement
         movement.y = Input.GetAxis("Vertical"); // Up and down movement
+
         if(Input.GetKeyDown(KeyCode.Space))
         {
-            if(Time.time - lastAttackTime >= attackRate && Vector2.Distance(transform.position, player.transform.position) < attackRange)
-            {
+            if(Time.time - lastAttackTime >= attackRate)
                 Attack();
-            }
         }
+    }
+
+    // Set number of calls per fram
+    void FixedUpdate()
+    {
+        // Apply physics and move the character
+        rb.MovePosition(rb.position + movement * moveSpeed * Time.deltaTime);
+
+        UpdateDirection();
     }
 
     void UpdateDirection()
@@ -51,15 +59,6 @@ public class Player_Controller : MonoBehaviour
             direction = vel;
         }
         rb.velocity = vel * moveSpeed;
-
-    }
-    // Set number of calls per fram
-    void FixedUpdate()
-    {
-        // Apply physics and move the character
-        rb.MovePosition(rb.position + movement * moveSpeed * Time.deltaTime);
-
-        UpdateDirection();
     }
     void Attack()
     {
@@ -83,6 +82,6 @@ public class Player_Controller : MonoBehaviour
     }
      public void Die()
     {
-        Debug.Log("Player has retired");
+        Debug.Log("Player has now passed away tragically");
     }
 }

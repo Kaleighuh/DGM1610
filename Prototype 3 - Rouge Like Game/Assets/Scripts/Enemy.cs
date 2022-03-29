@@ -7,12 +7,14 @@ public class Enemy : MonoBehaviour
     [Header("Enemy Health")]
     public int curHP;
     public int maxHP;
+
     [Header("Enemy Attack")]
     public int damage;
     public float attackRange;
     public float attackRate;
     private float lastAttackTime;
     public Player_Controller player;
+    
     
     // Start is called before the first frame update
     void Start()
