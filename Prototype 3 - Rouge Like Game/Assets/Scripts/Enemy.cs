@@ -14,6 +14,9 @@ public class Enemy : MonoBehaviour
     public float attackRate;
     private float lastAttackTime;
     public Player_Controller player;
+
+    [Header("LootDrop")]
+    public GameObject lootDrop;
     
     
     // Start is called before the first frame update
@@ -37,6 +40,7 @@ public class Enemy : MonoBehaviour
         if(curHP <= 0)
         {
             Die();
+            LootDrop();
         }
         
     }
@@ -48,5 +52,10 @@ public class Enemy : MonoBehaviour
     public void Die()
     {
         Destroy(gameObject);
+    }
+
+    void LootDrop()
+    {
+        Instantiate(lootDrop, transform.position, Quaternion.identity);
     }
 }

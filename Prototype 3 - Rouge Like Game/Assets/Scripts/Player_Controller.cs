@@ -13,6 +13,11 @@ public class Player_Controller : MonoBehaviour
     public float moveSpeed = 5f; // speed at which the player moves
     private Rigidbody2D rb; // Store the referenced 2D rigidbody
 
+    [Header("Inventory")]
+    public int key;
+    public int gems;
+    public int coins;
+
     Vector2 movement; //  Store the players x and y positions
     private Vector2 direction;
 
