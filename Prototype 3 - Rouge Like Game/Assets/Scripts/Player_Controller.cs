@@ -7,6 +7,7 @@ public class Player_Controller : MonoBehaviour
     [Header ("Player Health")]
     public int curHP;
     public int maxHP;
+    public HealthBar healthBar;
     
     [Header ("Player Movement")]
     public float moveSpeed = 5f; // speed at which the player moves
@@ -27,6 +28,8 @@ public class Player_Controller : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        curHP = maxHP;
+        healthBar.SetHealth(maxHP);
     }
 
     // Update is called once per frame
@@ -74,6 +77,7 @@ public class Player_Controller : MonoBehaviour
 
     {
         curHP -= damage;
+        healthBar.SetHealth(curHP);
         if(curHP <= 0)
         {
             Die();
