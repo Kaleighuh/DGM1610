@@ -40,7 +40,7 @@ public class PlayerController : MonoBehaviour
             moveVelocity = -speed;
         }
         //move player left and right
-        rb.velocity = new Vector2(moveVelocity, rb.velocity.y);
+        rb.velocity = new Vector2(moveVelocity,rb.velocity.y);
 
         if(Input.GetKeyDown(KeyCode.Space))
         {
