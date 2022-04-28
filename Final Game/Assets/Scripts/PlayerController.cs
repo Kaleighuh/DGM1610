@@ -9,12 +9,23 @@ public class PlayerController : MonoBehaviour
     public float jumpHeight;
     private Rigidbody2D rb;
 
+    [Header("Inventory")]
+    public int key;
+
     [Header("GroundCheck")]
     private bool isGrounded;
     public Transform groundCheck;
     public float groundCheckRadius;
     public LayerMask whatIsGround;
     private float moveVelocity;
+
+    [Header("Player Combat")]
+    public int damage;
+    public float attackRange;
+    public float attackRate;
+    private float lastAttackTime;
+    public LayerMask enemyLayer;
+
 
     // Start is called before the first frame update
     void Start()
@@ -41,18 +52,16 @@ public class PlayerController : MonoBehaviour
         //Move playerleft and right
         rb.velocity = new Vector2(moveVelocity,rb.velocity.y);
 
-        if(Input.GetKeyDown(KeyCode.Space) && isGrounded)
-        {
-            Jump();
-        }
+       
     }
 
     // Update is called once per frame
     void Update()
     {
-        
-
-        
+         if(Input.GetKeyDown(KeyCode.Space) && isGrounded)
+        {
+            Jump();
+        }
     }
     public void Jump()
     {
