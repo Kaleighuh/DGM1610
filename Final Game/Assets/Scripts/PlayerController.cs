@@ -4,6 +4,11 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
+    [Header("PlayerHealth")]
+    public int curHP;
+    public int maxHP;
+    private HealthBar healthBar;
+
     [Header("PlayerStats")]
     public float speed;
     public float jumpHeight;
@@ -32,6 +37,10 @@ public class PlayerController : MonoBehaviour
     {
         isGrounded = true;
         rb = GetComponent<Rigidbody2D>();
+
+        healthBar = GetComponent<HealthBar>();
+        curHP = maxHP;
+        healthBar.SetHealth(maxHP);
     }
 
     void FixedUpdate()
@@ -51,11 +60,8 @@ public class PlayerController : MonoBehaviour
         }
         //Move playerleft and right
         rb.velocity = new Vector2(moveVelocity,rb.velocity.y);
-
-       
     }
 
-    // Update is called once per frame
     void Update()
     {
          if(Input.GetKeyDown(KeyCode.Space) && isGrounded)
@@ -63,8 +69,26 @@ public class PlayerController : MonoBehaviour
             Jump();
         }
     }
+
     public void Jump()
     {
         rb.velocity = new Vector2(rb.velocity.x, jumpHeight);
     }
+
+    public void TakeDamage(int damage)
+    {
+        curHP -= damage;
+        healthBar.SetHealth(curHP);
+        if(curHP <= 0)
+        {
+            Die();
+        }
+    }
+
+    void Die()
+    {
+        Debug.Log("Player is dead...");
+        Destroy(gameObject);
+    }
+
 }

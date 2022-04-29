@@ -37,7 +37,8 @@ public class LevelOneAliens : MonoBehaviour
 
     void Attack()
     {
-        
+        lastAttackTime = Time.time;
+        player.TakeDamage(damage);
     }
 
     void Die()
