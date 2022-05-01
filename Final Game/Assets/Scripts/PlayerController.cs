@@ -1,13 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour
 {
     [Header("PlayerHealth")]
     public int curHP;
     public int maxHP;
-    private HealthBar healthBar;
 
     [Header("PlayerStats")]
     public float speed;
@@ -15,7 +15,7 @@ public class PlayerController : MonoBehaviour
     private Rigidbody2D rb;
 
     [Header("Inventory")]
-    public int key;
+    public int health;
 
     [Header("GroundCheck")]
     private bool isGrounded;
@@ -24,12 +24,12 @@ public class PlayerController : MonoBehaviour
     public LayerMask whatIsGround;
     private float moveVelocity;
 
-    [Header("Player Combat")]
+    [Header("Player Damage")]
     public int damage;
-    public float attackRange;
-    public float attackRate;
     private float lastAttackTime;
     public LayerMask enemyLayer;
+
+    public int sceneToLoad;
 
 
     // Start is called before the first frame update
@@ -37,10 +37,6 @@ public class PlayerController : MonoBehaviour
     {
         isGrounded = true;
         rb = GetComponent<Rigidbody2D>();
-
-        healthBar = GetComponent<HealthBar>();
-        curHP = maxHP;
-        healthBar.SetHealth(maxHP);
     }
 
     void FixedUpdate()
@@ -68,6 +64,7 @@ public class PlayerController : MonoBehaviour
         {
             Jump();
         }
+        
     }
 
     public void Jump()
@@ -78,7 +75,6 @@ public class PlayerController : MonoBehaviour
     public void TakeDamage(int damage)
     {
         curHP -= damage;
-        healthBar.SetHealth(curHP);
         if(curHP <= 0)
         {
             Die();
@@ -89,6 +85,17 @@ public class PlayerController : MonoBehaviour
     {
         Debug.Log("Player is dead...");
         Destroy(gameObject);
+        EndGame();
+    }
+
+    public void EndGame()
+    {
+        SceneManager.LoadScene(sceneToLoad);
+    }
+
+    public void QuitGame()
+    {
+        Application.Quit();
     }
 
 }
