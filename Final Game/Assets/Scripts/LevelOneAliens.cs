@@ -17,32 +17,19 @@ public class LevelOneAliens : MonoBehaviour
 
     void Start()
     {
-        player = GameObject.Find("Player").GetComponent<PlayerController>();
+        player = GameObject.Find("Player").GetComponent<PlayerController>(); //find the player
     }
     void Update()
     {
         if(Time.time - lastAttackTime >= attackRate && Vector2.Distance(transform.position, player.transform.position) < attackRange)
         {
-            Attack();
+            Attack(); // attack the player when they are in range
         }
     }
-    public void TakeDamage(int damage)
-    {
-        curHP -= damage;
-        if(curHP <= 0)
-        {
-            Die();
-        }
-    }
-
     void Attack()
     {
         lastAttackTime = Time.time;
-        player.TakeDamage(damage);
+        player.TakeDamage(damage);// create damage on the player
     }
 
-    void Die()
-    {
-        Destroy(gameObject);
-    }
 }

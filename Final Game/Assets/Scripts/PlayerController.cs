@@ -29,10 +29,8 @@ public class PlayerController : MonoBehaviour
     private float lastAttackTime;
     public LayerMask enemyLayer;
 
+    [Header("MainMenu")]
     public int sceneToLoad;
-
-
-    // Start is called before the first frame update
     void Start()
     {
         isGrounded = true;
@@ -45,7 +43,7 @@ public class PlayerController : MonoBehaviour
         isGrounded = Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, whatIsGround);
         //Non-stick player
         moveVelocity = 0f;
-
+        //How to get the player to move
         if(Input.GetKey(KeyCode.D))
         {
             moveVelocity = speed;
@@ -54,7 +52,6 @@ public class PlayerController : MonoBehaviour
         {
             moveVelocity = -speed;
         }
-        //Move playerleft and right
         rb.velocity = new Vector2(moveVelocity,rb.velocity.y);
     }
 
@@ -72,7 +69,7 @@ public class PlayerController : MonoBehaviour
         rb.velocity = new Vector2(rb.velocity.x, jumpHeight);
     }
 
-    public void TakeDamage(int damage)
+    public void TakeDamage(int damage) //how the player will take damage and die
     {
         curHP -= damage;
         if(curHP <= 0)
@@ -85,15 +82,15 @@ public class PlayerController : MonoBehaviour
     {
         Debug.Log("Player is dead...");
         Destroy(gameObject);
-        EndGame();
+        EndGame(); // when the player dies, the game with end
     }
 
-    public void EndGame()
+    public void EndGame() // end game leads to end game scene to load
     {
         SceneManager.LoadScene(sceneToLoad);
     }
 
-    public void QuitGame()
+    public void QuitGame() // the game will quit
     {
         Application.Quit();
     }

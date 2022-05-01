@@ -15,21 +15,19 @@ public class Lava : MonoBehaviour
 
     void Start()
     {
-        player = GameObject.Find("Player").GetComponent<PlayerController>();
+        player = GameObject.Find("Player").GetComponent<PlayerController>(); // find the player
     }
-
-    // Update is called once per frame
     void Update()
     {
         if(Time.time - lastAttackTime >= attackRate && Vector2.Distance(transform.position, player.transform.position) < attackRange)
         {
-            Attack();
+            Attack(); // attack the player when they are in range
         }
     }
 
-    void Attack()
+    void Attack() 
     {
         lastAttackTime = Time.time;
-        player.TakeDamage(damage);
+        player.TakeDamage(damage); // create damage onto the player
     }
 }
